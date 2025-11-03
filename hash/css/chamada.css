@@ -1,0 +1,450 @@
+/* Estilos para a página chamada.php - Versão Refinada */
+
+:root {
+    --primary-color: #b91c1c;
+    --primary-dark-color: #9f1a1a;
+    --secondary-color: #6c757d;
+    --secondary-dark-color: #5a6268;
+    --background-light: #f4f7f6;
+    --background-white: #ffffff;
+    --text-dark: #333;
+    --text-medium: #555;
+    --text-light: #777;
+    --border-light: #eee;
+    --border-medium: #ccc;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Inter', 'Arial', sans-serif; /* Preferência por Inter, se disponível */
+    background-color: var(--background-light);
+    margin: 0;
+    padding: 0;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container-principal {
+    max-width: 1000px; /* Ajuste para um container um pouco mais estreito */
+    margin: 30px auto; /* Mais espaçamento vertical */
+    padding: 30px;
+    background-color: var(--background-white);
+    border-radius: 12px; /* Bordas mais arredondadas */
+    box-shadow: 0 4px 20px var(--shadow-medium); /* Sombra mais pronunciada */
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--border-light);
+}
+
+.panel-header .icon {
+    font-size: 32px; /* Ícone maior */
+    color: var(--primary-color);
+    margin-right: 15px;
+}
+
+.panel-header h2 {
+    margin: 0;
+    font-size: 28px; /* Título maior */
+    color: var(--text-dark);
+    font-weight: 600; /* Mais negrito */
+}
+
+.panel-header-small {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: var(--text-medium);
+}
+
+.panel-header-small i {
+    font-size: 22px;
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.panel-header-small h3 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.alert {
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.chamada-container {
+    display: block; /* Remover grid para que a seção de alunos fique abaixo */
+    gap: 0;
+}
+
+@media (min-width: 768px) {
+    .chamada-container {
+        display: block; /* Manter como bloco em telas maiores também */
+    }
+}
+
+@media (min-width: 768px) {
+    .chamada-container {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+.step-card {
+    background-color: var(--background-white);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px var(--shadow-light);
+    transition: transform 0.2s ease-in-out; /* Transição ao passar o mouse */
+}
+
+.step-card:hover {
+    transform: translateY(-3px); /* Efeito sutil ao passar o mouse */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-medium);
+    font-size: 15px;
+}
+
+select, input[type="date"], textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-medium);
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+select:focus, input[type="date"]:focus, textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.2);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.lista-alunos h3 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.alunos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ajuste para cards um pouco maiores */
+    gap: 12px;
+}
+
+.aluno-item {
+    background-color: #fdfdfd;
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.aluno-item:hover {
+    background-color: #f5f5f5;
+    border-color: #dcdcdc;
+}
+
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 38px; /* Mais espaço para o checkbox */
+    margin-bottom: 0;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: var(--text-dark);
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px; /* Checkbox maior */
+    width: 24px; /* Checkbox maior */
+    background-color: var(--border-light);
+    border-radius: 5px;
+    border: 1px solid var(--border-medium);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #dcdcdc;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.form-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark-color);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-dark-color);
+}
+
+.no-students {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: var(--text-light);
+    background-color: #fefefe;
+    border-radius: 10px;
+    box-shadow: 0 1px 5px var(--shadow-light);
+}
+
+.no-students i {
+    font-size: 45px;
+    color: #dcdcdc;
+    margin-bottom: 20px;
+}
+
+/* Estilos para o header (se for incluído via PHP) */
+/* Assumindo que o header.php já tem seus próprios estilos ou será estilizado separadamente */
+
+/* Estilos para o footer (se for incluído via PHP) */
+/* Assumindo que o footer.php já tem seus próprios estilos ou será estilizado separadamente */
+
+
+/* Estilos para a nova tabela de alunos */
+.chamada-alunos-section {
+    margin-top: 30px; /* Espaçamento maior após a seleção da disciplina */
+}
+
+.alunos-table-container {
+    overflow-x: auto; /* Permite rolagem horizontal em telas pequenas */
+    margin-top: 20px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.alunos-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px; /* Aumentar um pouco a fonte */
+    text-align: left;
+}
+
+.alunos-table th,
+.alunos-table td {
+    padding: 15px 20px; /* Aumentar o padding para mais espaço */
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: middle; /* Alinhamento vertical central */
+}
+
+.alunos-table th {
+    font-weight: 700; /* Mais negrito */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+.alunos-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.alunos-table tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+.alunos-table td:last-child {
+    text-align: center; /* Centraliza o checkbox */
+}
+
+/* Ajustes para o checkbox dentro da tabela */
+.alunos-table .checkbox-container {
+    padding-left: 30px; /* Ajusta o padding para o checkbox na tabela */
+    display: inline-flex; /* Usar flexbox para centralizar */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    margin-bottom: 0; /* Remove margem extra */
+    height: 100%; /* Ocupa a altura total da célula */
+}
+
+.alunos-table .checkbox-container .checkmark {
+    height: 22px; /* Checkbox um pouco maior */
+    width: 22px; /* Checkbox um pouco maior */
+}
+
+.alunos-table .checkbox-container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+}
+
+.alunos-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    text-align: left;
+}
+
+.alunos-table th,
+.alunos-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.alunos-table thead {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+.alunos-table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.alunos-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.alunos-table tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+.alunos-table td:last-child {
+    text-align: center; /* Centraliza o checkbox */
+}
+
+/* Ajustes para o checkbox dentro da tabela */
+.alunos-table .checkbox-container {
+    padding-left: 30px; /* Ajusta o padding para o checkbox na tabela */
+    display: inline-block; /* Para centralizar melhor */
+    margin-bottom: 0; /* Remove margem extra */
+}
+
+.alunos-table .checkbox-container .checkmark {
+    height: 20px; /* Checkbox um pouco menor na tabela */
+    width: 20px; /* Checkbox um pouco menor na tabela */
+}
+
+.alunos-table .checkbox-container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+}
+
+/* Remover estilos antigos de grid de alunos se ainda existirem */
+
+

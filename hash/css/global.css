@@ -1,0 +1,72 @@
+/* Estilos globais comuns a todas as páginas */
+
+/* Variáveis CSS (se não estiverem em moderno.css) - Assumindo que moderno.css já define a maioria */
+/* Se houver variáveis que se repetem em ambos os arquivos internos, elas devem ser movidas para cá ou para moderno.css */
+
+/* Estilos de Layout Comuns (Se aplicável) */
+.main-content {
+    padding: var(--spacing-6);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Estilos de Cartões Comuns (Se aplicável) */
+.chart-header {
+    margin-bottom: var(--spacing-6);
+}
+
+.chart-title {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: var(--spacing-2);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+}
+
+.chart-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--border-radius);
+    background: var(--primary-red);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart-subtitle {
+    color: var(--gray-600);
+    font-size: var(--font-size-sm);
+}
+
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-8);
+    color: var(--gray-500);
+}
+
+.empty-state i {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-4);
+    color: var(--gray-400);
+}
+
+/* Estilos de Formulário Comuns (Se aplicável) */
+.error-message {
+    background: rgba(220, 53, 69, 0.1);
+    color: var(--danger);
+    padding: var(--spacing-3) var(--spacing-4);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-6);
+    font-size: var(--font-size-sm);
+    border-left: 4px solid var(--danger);
+}
+
+/* Media Queries Comuns (Se aplicável) */
+@media (max-width: 768px) {
+    .main-content {
+        padding: var(--spacing-4);
+    }
+}
